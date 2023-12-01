@@ -31,6 +31,8 @@ public class MadamBoss : EntityEnemys, IDamagable
     public float distanciaUmbral;
     public float suavidadRotacion = 5f;
 
+    public bool evento = true;
+
     public enum typeAtacks
     {
         first,
@@ -49,6 +51,10 @@ public class MadamBoss : EntityEnemys, IDamagable
 
     void Update()
     {
+        if (evento)
+        {
+            return;
+        }
         minDist = Vector3.Distance(player.position, transform.position);
         LifeManagement();
         if (minDist < dist)

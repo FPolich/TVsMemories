@@ -18,6 +18,13 @@ public class Controller : IAnimator
     private Animator _animator;
     private float speed;
 
+    public delegate void Interact();
+    public Interact action;
+
+    public NPCScript dialogo;
+   
+    
+
     public Controller (Movement movement, Pause pause, GameObject _canvas, EmpathyManager empathy, Animator _anim, float _speed)
 
     {
@@ -27,16 +34,21 @@ public class Controller : IAnimator
         _empathy= empathy;
         _animator = _anim;
         speed = _speed;
+      
     }
 
-    public void ArtificialOnTrigger(Collider other)
+    public void ArtificialOnTrigger()
     {
-        other.GetComponent<NPCScript>().npcs.gameObject.SetActive(true);
-        if (Input.GetKeyUp(KeyCode.E))
-        {
-            other.GetComponent<NPCScript>().dialogues();
-            other.GetComponent<NPCScript>().reference = _empathy;
-        }
+         dialogo.npcs.gameObject.SetActive(true);
+
+          if (Input.GetKeyUp(KeyCode.E))
+          {
+             dialogo.dialogues();
+              dialogo.reference = _empathy;
+            
+         }
+
+
     }
 
     public void Artificialupdate()
@@ -60,6 +72,8 @@ public class Controller : IAnimator
         {
             Pused();
         }
+
+        action();
     }
     public void Pused()
     {

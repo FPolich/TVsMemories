@@ -23,6 +23,7 @@ public class Player : MonoBehaviour
     [SerializeField]
     float maxEmpathy = 100;
     // public Slider sld;
+    public bool playable = true;
 
     public Camera _cam;
     public GameObject canvas;
@@ -43,17 +44,19 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+       
         aim.ForwardShooting(_cam);
         controller.Artificialupdate();
         empathy.RestEmpathy();
     }
 
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         IDialogable x = other.GetComponent<IDialogable>();
         if (x != null)
         {
-            controller.ArtificialOnTrigger(other);
+            controller.dialogo = other.GetComponent<NPCScript>();
+            controller.action += controller.ArtificialOnTrigger;
         }
         ICollectible y = other.GetComponent<ICollectible>();
         if (y != null)
@@ -61,6 +64,17 @@ public class Player : MonoBehaviour
             other.GetComponent<ICollectible>().Plus();
         }
         
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        IDialogable x = other.GetComponent<IDialogable>();
+        if (x != null)
+        {
+            controller.dialogo = null;
+            controller.action-=controller.ArtificialOnTrigger;
+            playable= true;
+        }
     }
 
 }
