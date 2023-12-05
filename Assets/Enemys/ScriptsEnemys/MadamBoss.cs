@@ -28,11 +28,11 @@ public class MadamBoss : EntityEnemys, IDamagable
     //Movimiento por waypoints
     public Transform[] waypoints;
     private int currentWaypointIndex = 0;
-    public float velocidadMovimiento;
+    public float velocidadMovimiento = 10;
     public float distanciaUmbral;
     public float suavidadRotacion = 5f;
 
-    public bool evento = true;
+    public bool evento = false;
 
     public enum typeAtacks
     {
@@ -60,11 +60,12 @@ public class MadamBoss : EntityEnemys, IDamagable
         LifeManagement();
         if (minDist < dist)
         {
+            velocidadMovimiento = 3f;
             myCallback();
-            return;
         }
+        else { velocidadMovimiento = 10f; }
 
-        else if (Vector3.Distance(transform.position, waypoints[currentWaypointIndex].position) < distanciaUmbral)
+        if (Vector3.Distance(transform.position, waypoints[currentWaypointIndex].position) < distanciaUmbral)
         {
             CambiarWaypoint();
         }
@@ -110,7 +111,7 @@ public class MadamBoss : EntityEnemys, IDamagable
 
     protected override void Atack()
     {
-       
+        
         transform.LookAt(player);
 
         if (Time.time - lastShootTime >= shootDelay)
