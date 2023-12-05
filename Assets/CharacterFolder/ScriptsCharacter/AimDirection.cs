@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class AimDirection : MonoBehaviour
 {
+    //TP2 VintarValentin
     Camera cameraCam;
     
 

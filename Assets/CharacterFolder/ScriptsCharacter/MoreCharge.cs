@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MoreCharge : MonoBehaviour, ICollectible
 {
+    //TP2 Vintar
     public GameObject sound;
     public NormalGun gun;
     public float rotationVelocity = 100;

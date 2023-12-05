@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class MoreLife : MonoBehaviour, ICollectible
 {
+
+    //TP2 Vintar
     public GameObject sound;
     public LifeManager life;
     public float moreLife;

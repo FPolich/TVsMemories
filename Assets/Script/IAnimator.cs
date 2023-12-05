@@ -4,6 +4,7 @@ using UnityEngine;
 
 public interface IAnimator
 {
+    //TP2 Polich
     void Caminar();
     void Morir();
 

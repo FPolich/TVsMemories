@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Explote : MonoBehaviour
 {
-
+    //TP2 Polich
     public float dmg;
     private void OnTriggerEnter(Collider other)
     {

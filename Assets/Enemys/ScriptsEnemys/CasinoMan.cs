@@ -8,6 +8,7 @@ using static MadamBoss;
 
 public class CasinoMan : EntityEnemys, INavMeshAgent, IAnimator, IDamagable
 {
+    //TP2 Marques Polich
     public Transform puntoA;
     public Transform puntoB;
     public Transform destinoActual;
@@ -72,14 +73,17 @@ public class CasinoMan : EntityEnemys, INavMeshAgent, IAnimator, IDamagable
         if (dist < minDist)
         {
             Atack();
-            
-        }
-        else if (Vector3.Distance(transform.position, destinoActual.position) < distanciaUmbral)
-        {
-           
+            navMeshAgent.isStopped = true;
 
-            destinoActual = (destinoActual == puntoA) ? puntoB : puntoA;
-        Mover(destinoActual.position);       
+        }
+        else
+        {
+            navMeshAgent.isStopped = false;
+            if (Vector3.Distance(transform.position, destinoActual.position) < distanciaUmbral)
+            {
+                destinoActual = (destinoActual == puntoA) ? puntoB : puntoA;
+                Mover(destinoActual.position);
+            }
         }
        
     }

@@ -8,6 +8,8 @@ using UnityEngine;
 public class Controller : IAnimator
 {
     
+    //TP2 VintarValentin
+
     public Movement _movement;
     public Pause _pause;
     public GameObject canvas;
@@ -34,7 +36,7 @@ public class Controller : IAnimator
         _empathy= empathy;
         _animator = _anim;
         speed = _speed;
-      
+        action = empty;
     }
 
     public void ArtificialOnTrigger()
@@ -50,7 +52,10 @@ public class Controller : IAnimator
 
 
     }
+    void empty()
+    {
 
+    }
     public void Artificialupdate()
     {
         float h = Input.GetAxisRaw("Horizontal");

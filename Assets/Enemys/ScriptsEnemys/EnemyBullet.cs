@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyBullet : MonoBehaviour
 {
-    
+    //TP2 Polich
     public LayerMask layerMask;
     public float myDmg = 5;
 

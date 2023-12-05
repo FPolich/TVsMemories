@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
+    //TP2 Marques
 
     public LifeManager lifeRef;
     public Slider lifeSlider;

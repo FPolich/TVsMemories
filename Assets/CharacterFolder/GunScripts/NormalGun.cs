@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class NormalGun : GunsAbs
 {
+    //TP2 Polich
+
     public string bulletCount;
     public string chargeCount;
     public GameObject positionSp;

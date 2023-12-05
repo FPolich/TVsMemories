@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class EmpathyManager : MonoBehaviour
 {
+    //TP2 Vintar
     [SerializeField, Range(0, 100)]
     float _empathy;
 
@@ -34,6 +35,10 @@ public class EmpathyManager : MonoBehaviour
     public void PlusEmpathy(float empathy)
     {
         _empathy += empathy;
+        if (_empathy >= maxEmpathy)
+        {
+            _empathy = maxEmpathy;
+        }
     }
 
     public float Empathy

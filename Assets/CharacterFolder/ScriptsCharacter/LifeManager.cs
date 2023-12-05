@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class LifeManager : MonoBehaviour, IDamagable, IParticles
 {
+    //TP2 Marques
     [SerializeField, Range(0, 100)]
     AudioSource _audi;
     public GameObject audioDead;

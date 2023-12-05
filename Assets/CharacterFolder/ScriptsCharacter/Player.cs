@@ -7,6 +7,8 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
+
+    //TP2 Vintar
     Movement movement;
     Controller controller;
     Pause pause;

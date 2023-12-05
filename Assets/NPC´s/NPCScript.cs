@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class NPCScript : MonoBehaviour, IDialogable
 {
+    //TP2 Marques
+
     public string[] linesNpc;
     public DialogosScript myDialogues;
     int index;

@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class DialogosScript : MonoBehaviour
 {
+    //TP2 Marques Vintar
     public TextMeshProUGUI dialogueText;
     public string[] lines;
     public float speedText = 0.1f;
@@ -19,7 +20,7 @@ public class DialogosScript : MonoBehaviour
         StartCoroutine(WriteLine());
 
     }
-
+    
     IEnumerator WriteLine()
     {
         foreach (char letter in lines[index].ToCharArray())

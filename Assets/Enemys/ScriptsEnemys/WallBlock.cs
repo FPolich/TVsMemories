@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class WallBlock : MonoBehaviour
 {
+    //TP2 Polich
     public float damageFromWall = 1f;
     public float rotationSpeed = 250.0f;
     public float maxHeight = 5.0f;

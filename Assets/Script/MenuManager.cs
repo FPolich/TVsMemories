@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
+
+    //TP2 Vintar
     public GameObject canvas;
 
     Pause _pause;

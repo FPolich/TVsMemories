@@ -3,6 +3,8 @@ using UnityEngine;
 
 public abstract class GunsAbs : MonoBehaviour, IAudio
 {
+ 
+    //TP2 Polich
     
     [SerializeField]
     protected int _bulletCount;

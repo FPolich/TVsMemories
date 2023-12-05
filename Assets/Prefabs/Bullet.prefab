@@ -129,6 +129,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   layerMask:
     serializedVersion: 2
-    m_Bits: 64
-  myDmg: 10
+    m_Bits: 8
+  myDmg: 2.5
   _speed: 150

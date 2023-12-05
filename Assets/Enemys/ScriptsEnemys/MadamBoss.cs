@@ -5,6 +5,7 @@ using UnityEngine.AI;
 
 public class MadamBoss : EntityEnemys, IDamagable
 {
+    //TP2 Vintar
     [SerializeField]
     float lastShootTime;
     public float shootDelay = 0.8f;
@@ -60,9 +61,10 @@ public class MadamBoss : EntityEnemys, IDamagable
         if (minDist < dist)
         {
             myCallback();
+            return;
         }
 
-        if (Vector3.Distance(transform.position, waypoints[currentWaypointIndex].position) < distanciaUmbral)
+        else if (Vector3.Distance(transform.position, waypoints[currentWaypointIndex].position) < distanciaUmbral)
         {
             CambiarWaypoint();
         }

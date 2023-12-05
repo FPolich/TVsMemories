@@ -5,6 +5,7 @@ using UnityEngine.AI;
 
 public class Kamikaze : MonoBehaviour, INavMeshAgent, IAnimator, IParticles
 {
+    //TP2 Polich
     public Transform puntoA;
     public Transform puntoB;
     public Transform destinoActual;

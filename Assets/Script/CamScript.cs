@@ -5,6 +5,7 @@ using UnityEngine.Analytics;
 
 public class CamScript : MonoBehaviour
 {
+    //TP2Vintar
 
     [SerializeField]
     Camera _camRef;

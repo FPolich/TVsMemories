@@ -4,5 +4,6 @@ using UnityEngine;
 
 interface IDialogable 
 {
-    
+    //TP2 Vintar
+
 }

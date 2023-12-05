@@ -4,6 +4,7 @@ using UnityEngine;
 
 public abstract class EntityEnemys : MonoBehaviour, IDamagable
 {
+    //TP2 Marques
     [SerializeField]
     protected float _life = 100;
     [SerializeField]
