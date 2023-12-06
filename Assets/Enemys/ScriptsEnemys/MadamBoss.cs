@@ -191,4 +191,12 @@ public class MadamBoss : EntityEnemys, IDamagable
     {
         Destroy(gameObject);
     }
+
+    public GameObject win;
+
+    private void OnDestroy()
+    {
+        
+        win.SetActive(true);
+    }
 }
