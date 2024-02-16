@@ -10,7 +10,7 @@ public class Player : MonoBehaviour
 
     //TP2 Vintar
     Movement movement;
-    Controller controller;
+    public Controller controller;
     Pause pause;
     public EmpathyManager empathy;
     public LifeManager lifeM;
@@ -19,13 +19,14 @@ public class Player : MonoBehaviour
 
     private Animator _animator;
 
+ 
+
     [SerializeField]
     float maxLife = 100;
 
     [SerializeField]
     float maxEmpathy = 100;
     // public Slider sld;
-    public bool playable = true;
 
     public Camera _cam;
     public GameObject canvas;
@@ -46,7 +47,6 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-       
         aim.ForwardShooting(_cam);
         controller.Artificialupdate();
         empathy.RestEmpathy();
@@ -58,25 +58,24 @@ public class Player : MonoBehaviour
         if (x != null)
         {
             controller.dialogo = other.GetComponent<NPCScript>();
-            controller.action += controller.ArtificialOnTrigger;
+            controller.action = controller.ArtificialOnTrigger;
+            print("x");
+            Debug.Log("x");
         }
         ICollectible y = other.GetComponent<ICollectible>();
         if (y != null)
         {
             other.GetComponent<ICollectible>().Plus();
         }
-        
     }
 
     private void OnTriggerExit(Collider other)
     {
-        IDialogable x = other.GetComponent<IDialogable>();
-        if (x != null)
-        {
-            controller.dialogo = null;
-            controller.action-=controller.ArtificialOnTrigger;
-            playable= true;
-        }
+        print(".");
+        
+            controller.action =controller.ArtificialExit;
+        
+
     }
 
 }

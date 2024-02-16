@@ -57,5 +57,6 @@ public class NPCScript : MonoBehaviour, IDialogable
     private void OnTriggerExit(Collider other)
     {
         npcs.gameObject.SetActive(false);
+        print("sali");
     }
 }

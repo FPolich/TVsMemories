@@ -24,8 +24,8 @@ public class Controller : IAnimator
     public Interact action;
 
     public NPCScript dialogo;
+
    
-    
 
     public Controller (Movement movement, Pause pause, GameObject _canvas, EmpathyManager empathy, Animator _anim, float _speed)
 
@@ -37,6 +37,7 @@ public class Controller : IAnimator
         _animator = _anim;
         speed = _speed;
         action = empty;
+        
     }
 
     public void ArtificialOnTrigger()
@@ -51,6 +52,10 @@ public class Controller : IAnimator
          }
 
 
+    }
+    public void ArtificialExit ()
+    {
+        dialogo.npcs.gameObject.SetActive(false);
     }
     void empty()
     {
