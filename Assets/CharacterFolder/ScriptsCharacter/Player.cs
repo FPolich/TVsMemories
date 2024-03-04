@@ -72,12 +72,9 @@ public class Player : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         print(".");
-        IDialogable x = other.GetComponent<IDialogable>();
-        if (x != null)
-        {
+        
             controller.action =controller.ArtificialExit;
-        }
-
+        
 
     }
 
