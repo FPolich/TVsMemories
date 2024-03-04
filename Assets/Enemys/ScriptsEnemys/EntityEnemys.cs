@@ -12,6 +12,11 @@ public abstract class EntityEnemys : MonoBehaviour, IDamagable
 
     [SerializeField]
     protected string[] text;
+
+    private void Start()
+    {
+        
+    }
     public void TakeDmg(float dmg)
     {
         _life -= dmg;
