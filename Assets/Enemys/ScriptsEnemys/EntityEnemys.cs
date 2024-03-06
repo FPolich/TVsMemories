@@ -5,14 +5,19 @@ using UnityEngine;
 public abstract class EntityEnemys : MonoBehaviour, IDamagable
 {
     //TP2 Marques
+
+
+
     [SerializeField]
     protected float _life = 100;
     [SerializeField]
     protected int _bulletCount;
 
     [SerializeField]
-    protected string[] text;
-    public void TakeDmg(float dmg)
+    protected string[] text; 
+
+  
+    public virtual void TakeDmg(float dmg)
     {
         _life -= dmg;
         print(_life);
@@ -25,4 +30,5 @@ public abstract class EntityEnemys : MonoBehaviour, IDamagable
     protected abstract void Atack();
 
     protected abstract void AudioEnemy();
+
 }

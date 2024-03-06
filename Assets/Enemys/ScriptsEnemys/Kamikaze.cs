@@ -25,6 +25,7 @@ public class Kamikaze : MonoBehaviour, INavMeshAgent, IAnimator, IParticles
         navMeshAgent.speed = velocidadAgente;
         destinoActual = puntoA;
         Mover(destinoActual.position);
+
     }
 
     private void Update()

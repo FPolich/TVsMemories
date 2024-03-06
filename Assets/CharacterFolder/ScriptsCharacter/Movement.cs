@@ -10,14 +10,14 @@ public class Movement
     //TP2 Marques
     Camera _cam;
     Rigidbody _rb;
-    float _speed = 4;
+    public float speed = 4;
     Transform transform;
     float rotateSpeed = 1;
 
     public Movement (Rigidbody rb, float speed, Camera cam, Transform _transform)
     {
         _rb = rb;
-        _speed = speed;
+        speed = speed;
         _cam = cam;
         transform = _transform; 
     }
@@ -29,7 +29,7 @@ public class Movement
         dir.y = 0;
         
 
-        _rb.velocity = dir.normalized * _speed;
+        _rb.velocity = dir.normalized * speed;
 
         Vector3 _newRotate = Vector3.Lerp(transform.forward, dir, rotateSpeed * Time.fixedDeltaTime);
 

@@ -29,7 +29,10 @@ public class CasinoMan : EntityEnemys, INavMeshAgent, IAnimator, IDamagable
 
     public float shootDelay;
     float lastShootTime;
-    
+
+    Renderer renderObj;
+    Color defaultColor;
+    public Color newColor = Color.white;
 
     public Transform target;
     float dist;
@@ -41,7 +44,8 @@ public class CasinoMan : EntityEnemys, INavMeshAgent, IAnimator, IDamagable
         navMeshAgent.speed = velocidadAgente;
         destinoActual = puntoA;
         Mover(destinoActual.position);
-        
+      renderObj= GetComponentInChildren<Renderer>();
+        defaultColor = renderObj.material.color;
         _life = maxLife;
     }
     private void Update()
@@ -86,6 +90,22 @@ public class CasinoMan : EntityEnemys, INavMeshAgent, IAnimator, IDamagable
             }
         }
        
+    }
+
+    public override void TakeDmg(float dmg)
+    {
+        base.TakeDmg(dmg);
+        StartCoroutine(cambioColor());
+        StopCoroutine(cambioColor());
+    }
+
+
+    IEnumerator cambioColor()
+    {
+        renderObj.material.color = newColor;
+        yield return new WaitForSeconds(0.05f);
+        renderObj.material.color = defaultColor;
+        yield return null;
     }
 
     public void Caminar()

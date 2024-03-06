@@ -54,9 +54,5 @@ public class NPCScript : MonoBehaviour, IDialogable
         reference.PlusEmpathy(myEmpathy);
     }
 
-    private void OnTriggerExit(Collider other)
-    {
-        npcs.gameObject.SetActive(false);
-        print("sali");
-    }
+    
 }

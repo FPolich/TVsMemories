@@ -48,6 +48,7 @@ public class MadamBoss : EntityEnemys, IDamagable
         rb = GetComponent<Rigidbody>();
         _anim = GetComponent<Animator>();
         MoverHaciaWaypoint();
+        
     }
 
     void Update()

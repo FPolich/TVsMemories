@@ -18,7 +18,7 @@ public class Controller : IAnimator
     EmpathyManager _empathy;
 
     private Animator _animator;
-    private float speed;
+    public float speed;
 
     public delegate void Interact();
     public Interact action;
@@ -55,7 +55,8 @@ public class Controller : IAnimator
     }
     public void ArtificialExit ()
     {
-        dialogo.npcs.gameObject.SetActive(false);
+       dialogo.myDialogues.StopAllCoroutines();
+       dialogo.panelDialogos.SetActive(false);
     }
     void empty()
     {
