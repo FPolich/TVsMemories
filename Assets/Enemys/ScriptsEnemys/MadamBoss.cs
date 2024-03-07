@@ -197,7 +197,9 @@ public class MadamBoss : EntityEnemys, IDamagable
 
     private void OnDestroy()
     {
-        
-        win.SetActive(true);
+        if (win != null)
+        {
+            win.SetActive(true);
+        }
     }
 }

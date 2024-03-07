@@ -24,7 +24,6 @@ public class NormalGun : GunsAbs
             bullet.GetComponent<EnemyBullet>().Initialize(maskAtack);
             bullet.GetComponent<EnemyBullet>().myDmg = gunDmg;
             _bulletCount--;
-            print("tiro " + Time.time);
             yield return null;
         
     }

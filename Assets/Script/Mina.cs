@@ -27,15 +27,10 @@ public class Mina : MonoBehaviour
         
     }
 
-    private void Start()
-    {
-    }
-
     private void OnTriggerEnter(Collider collision)
     {
         if (collision.gameObject.layer == 3)
         {
-            print("entre");
            explote= true;
             canvas.gameObject.SetActive(true);
         }

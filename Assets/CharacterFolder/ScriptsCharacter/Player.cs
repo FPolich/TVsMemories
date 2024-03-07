@@ -59,8 +59,6 @@ public class Player : MonoBehaviour
         {
             controller.dialogo = other.GetComponent<NPCScript>();
             controller.action = controller.ArtificialOnTrigger;
-            print("x");
-            Debug.Log("x");
         }
         ICollectible y = other.GetComponent<ICollectible>();
         if (y != null)

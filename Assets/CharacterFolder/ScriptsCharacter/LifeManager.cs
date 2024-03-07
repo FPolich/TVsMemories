@@ -28,13 +28,15 @@ public class LifeManager : MonoBehaviour, IDamagable, IParticles
 
     public void ActivarParticulas()
     {
-        ParticleSystem dust = GetComponentInChildren<ParticleSystem>();
-        dust.Play();
+        if(myPlayer != null)
+        {
+            ParticleSystem dust = GetComponentInChildren<ParticleSystem>();
+            dust.Play();
+        }
     }   
     public void TakeDmg(float dmg)
     {
         _life -= dmg;
-        Debug.Log(_life);
         _audi.Play();
         ActivarParticulas();
         if (_life <=0)

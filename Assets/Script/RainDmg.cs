@@ -13,8 +13,6 @@ public class RainDmg : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         IDamagable x = other.GetComponent<IDamagable>();
-        print(x);
-
         if (other.gameObject.layer == 3 && x != null)
         {
             StartCoroutine(DMGRain(x));

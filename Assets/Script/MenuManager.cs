@@ -9,6 +9,8 @@ public class MenuManager : MonoBehaviour
 
     //TP2 Vintar
     public GameObject canvas;
+    public GameObject PanelCredits;
+    public GameObject PanelControls;
 
     Pause _pause;
     private void Start()
@@ -22,17 +24,27 @@ public class MenuManager : MonoBehaviour
 
     public void Menu()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene("Menu");
     }
 
     public void Tutorial()
     {
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene("Tutorial");
+    }
+
+    public void Credits()
+    {
+        PanelCredits.SetActive(true);
+    }
+
+    public void Controls()
+    {
+        PanelControls.SetActive(true);
     }
 
     public void StartGame()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene("Nivel1Blockout");
     }
 
     public void Exit()
