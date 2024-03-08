@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 
 public class EnemyBullet : MonoBehaviour
@@ -34,7 +33,7 @@ public class EnemyBullet : MonoBehaviour
             IDamagable x = other.GetComponent<IDamagable>();
            
             if (x != null)
-                x.TakeDmg(myDmg); //Polimorfismo
+                x.TakeDmg(myDmg);
 
         }
 

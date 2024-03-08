@@ -1,7 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
-using UnityEditor;
 using UnityEngine;
 
 public class Movement 
@@ -14,10 +10,10 @@ public class Movement
     Transform transform;
     float rotateSpeed = 1;
 
-    public Movement (Rigidbody rb, float speed, Camera cam, Transform _transform)
+    public Movement (Rigidbody rb, float _speed, Camera cam, Transform _transform)
     {
         _rb = rb;
-        speed = speed;
+        speed = _speed;
         _cam = cam;
         transform = _transform; 
     }

@@ -1,9 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Kamikaze : MonoBehaviour, INavMeshAgent, IAnimator, IParticles
+public class Kamikaze : MonoBehaviour, INavMeshAgent, IParticles
 {
     //TP2 Polich
     public Transform puntoA;
@@ -12,10 +11,10 @@ public class Kamikaze : MonoBehaviour, INavMeshAgent, IAnimator, IParticles
     private NavMeshAgent navMeshAgent;
     public float distanciaUmbral = 1f;  // Distancia umbral para cambiar de destino
     public float velocidadAgente = 10f;  // Velocidad del NavMeshAgent
-    private Animator animator;
     public GameObject instan;
     private AudioSource _audioSource;
     public GameObject explosion;
+    private Animator animator;
 
     void Start()
     {
@@ -35,8 +34,6 @@ public class Kamikaze : MonoBehaviour, INavMeshAgent, IAnimator, IParticles
         {
             CambiarDestino();
         }
-
-        animator.SetFloat("Speed", navMeshAgent.velocity.magnitude);
     }
 
     private void OnCollisionEnter(Collision other)
@@ -55,17 +52,13 @@ public class Kamikaze : MonoBehaviour, INavMeshAgent, IAnimator, IParticles
     {
         Instantiate(instan, transform.position, transform.rotation);
         ParticleSystem exp = GetComponentInChildren<ParticleSystem>();
-        Stop();
+        animator.speed = 0f;
         exp.Play();
         navMeshAgent.isStopped = true;
         _audioSource.Play();
         Destroy(gameObject, exp.main.duration);
     }
-    private void OnDestroy()
-    {
-        
 
-    }
     public void Mover(Vector3 destino)
     {
         navMeshAgent.SetDestination(destino);
@@ -83,22 +76,6 @@ public class Kamikaze : MonoBehaviour, INavMeshAgent, IAnimator, IParticles
     {
         destinoActual = (destinoActual == puntoA) ? puntoB : puntoA;
         Mover(destinoActual.position);
-    }
-
-    public void Caminar () 
-    {
-        animator.Play("Walk");
-    }
-
-    public void Stop()
-    {
-        animator.speed = 0f;
-    }
-    public void Morir () {  }
-    public void Disparar () { }
-    public void Idle () 
-    {
-        animator.Play("Idle");
     }
 
 }

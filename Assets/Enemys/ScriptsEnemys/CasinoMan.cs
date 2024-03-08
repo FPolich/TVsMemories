@@ -1,12 +1,9 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-
-using UnityEngine.UIElements;
 using static MadamBoss;
 
-public class CasinoMan : EntityEnemys, INavMeshAgent, IAnimator, IDamagable
+public class CasinoMan : EntityEnemys, INavMeshAgent, IDamagable
 {
     //TP2 Marques Polich
     public Transform puntoA;
@@ -14,7 +11,7 @@ public class CasinoMan : EntityEnemys, INavMeshAgent, IAnimator, IDamagable
     public Transform destinoActual;
     private NavMeshAgent navMeshAgent;
     public float distanciaUmbral = 1f;  // Distancia umbral para cambiar de destino
-    public float velocidadAgente = 10f;  // Velocidad del NavMeshAgent
+    public float velocidadAgente = 10f; 
     private Animator animator;
     public GameObject instan;
     public float maxLife = 100;
@@ -107,27 +104,10 @@ public class CasinoMan : EntityEnemys, INavMeshAgent, IAnimator, IDamagable
         renderObj.material.color = defaultColor;
         yield return null;
     }
-
-    public void Caminar()
-    {
-    }
-
-    public void Stop()
-    {
-        animator.speed = 0f;
-    }
     protected override void Muerte() 
     {
         Instantiate(soundDie);
     Destroy(gameObject);
-    }
-    public void Morir()
-    {
-
-    }
-    public void Disparar() { }
-    public void Idle()
-    {
     }
     protected override void Atack()
     {

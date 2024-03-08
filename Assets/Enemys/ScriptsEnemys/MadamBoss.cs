@@ -1,7 +1,5 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
 
 public class MadamBoss : EntityEnemys, IDamagable
 {
@@ -21,7 +19,6 @@ public class MadamBoss : EntityEnemys, IDamagable
     float lastRecharge;
 
     Rigidbody rb;
-    Animator _anim;
     delegate void myDelegate();
     myDelegate myCallback;
 
@@ -46,7 +43,6 @@ public class MadamBoss : EntityEnemys, IDamagable
     {
         myCallback = Atack;
         rb = GetComponent<Rigidbody>();
-        _anim = GetComponent<Animator>();
         MoverHaciaWaypoint();
         
     }

@@ -1,10 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UI;
-
-
 public class Player : MonoBehaviour
 {
 
@@ -26,8 +20,6 @@ public class Player : MonoBehaviour
 
     [SerializeField]
     float maxEmpathy = 100;
-    // public Slider sld;
-
     public Camera _cam;
     public GameObject canvas;
     public float speed;

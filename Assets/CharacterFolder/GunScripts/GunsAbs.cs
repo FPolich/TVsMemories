@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public abstract class GunsAbs : MonoBehaviour, IAudio
+public abstract class GunsAbs : MonoBehaviour
 {
  
     //TP2 Polich
@@ -90,16 +90,5 @@ public abstract class GunsAbs : MonoBehaviour, IAudio
         _lastBullet = Time.time;
     }
 
-    protected abstract IEnumerator ShootingAuto();
-    
-    public void ShootPrimaryGun() 
-    {
-        
-    }
-    public void ShootSecondaryGun() { }
-    public void Death() { }
-    public void Hurt() { }
-    public void DetenerAudio() { }
-
-    
+    protected abstract IEnumerator ShootingAuto();    
 }
