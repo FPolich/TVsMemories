@@ -8,12 +8,12 @@ public class Player : MonoBehaviour
     Pause pause;
     public EmpathyManager empathy;
     public LifeManager lifeM;
-
+    public Inventory inventario;
     public AimDirection aim;
 
     private Animator _animator;
 
- 
+    public Item[] guns;
 
     [SerializeField]
     float maxLife = 100;
@@ -23,6 +23,10 @@ public class Player : MonoBehaviour
     public Camera _cam;
     public GameObject canvas;
     public float speed;
+
+    public float lifeRef;
+    public float empathyRef;
+    public int indexGun;
     void Start()
     {
         Time.timeScale = 1.0f;
@@ -31,8 +35,8 @@ public class Player : MonoBehaviour
         movement = new Movement(_rb, speed, _cam, transform);
         pause = new Pause();
         lifeM.initialize(this);
-
-        controller = new Controller(movement, pause, canvas, empathy, _animator, speed);
+        inventario = new Inventory(guns[1], guns[0]);
+        controller = new Controller(movement, pause, canvas, empathy, _animator, speed, inventario);
         lifeM.maxLife = maxLife;
         empathy.maxEmpathy = maxEmpathy;
     }
@@ -42,6 +46,10 @@ public class Player : MonoBehaviour
         aim.ForwardShooting(_cam);
         controller.Artificialupdate();
         empathy.RestEmpathy();
+
+        lifeRef = lifeM.Life;
+        empathyRef = empathy.Empathy;
+        indexGun = inventario.indexRef;
     }
 
     private void OnTriggerEnter(Collider other)

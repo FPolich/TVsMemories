@@ -24,10 +24,10 @@ public class Controller : IAnimator
     public Interact action;
 
     public NPCScript dialogo;
-
+    Inventory inventory;
    
 
-    public Controller (Movement movement, Pause pause, GameObject _canvas, EmpathyManager empathy, Animator _anim, float _speed)
+    public Controller (Movement movement, Pause pause, GameObject _canvas, EmpathyManager empathy, Animator _anim, float _speed, Inventory inventario)
 
     {
         _movement = movement;
@@ -37,7 +37,7 @@ public class Controller : IAnimator
         _animator = _anim;
         speed = _speed;
         action = empty;
-        
+        inventory= inventario;
     }
 
     public void ArtificialOnTrigger()
@@ -85,6 +85,11 @@ public class Controller : IAnimator
         }
 
         action();
+
+        if (Input.GetAxis("Mouse ScrollWheel") != 0f)
+        {
+            inventory.changeWeapon();
+        }
     }
     public void Pused()
     {

@@ -6,23 +6,27 @@ public class UIManager : MonoBehaviour
 {
     //TP2 Marques
 
-    public LifeManager lifeRef;
+    public Player playerRef;
     public Slider lifeSlider;
-    public NormalGun firstGun;
-
-    public EmpathyManager empathyRef;
+   
+   
     public Slider empathySlider;
 
 
     public TMP_Text bullets;
     public TMP_Text charger;
+    public TMP_Text Weapon;
 
     void Update()
     {
-        lifeSlider.value = lifeRef.Life;
-        empathySlider.value = empathyRef.Empathy;
+        lifeSlider.value = playerRef.lifeRef;
+        empathySlider.value = playerRef.empathyRef;
 
-        bullets.text = "Balas:" + firstGun.bulletCount;
-        charger.text = "(R)ecargas: " + firstGun.chargeCount;
+         bullets.text = "Balas:" + playerRef.inventario.items[playerRef.indexGun].gun.GetComponent<NormalGun>().bulletCount;
+         charger.text = "(R)ecargas: " + playerRef.inventario.items[playerRef.indexGun].gun.GetComponent<NormalGun>().chargeCount;
+         Weapon.text =  playerRef.inventario.items[playerRef.indexGun].name;
     }
-}
+
+    
+} 
+

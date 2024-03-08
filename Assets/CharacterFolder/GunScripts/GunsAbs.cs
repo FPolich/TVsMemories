@@ -37,6 +37,17 @@ public abstract class GunsAbs : MonoBehaviour
 
     private AudioSource _audioSource;
 
+
+
+    public enum typeAtacks
+    {
+        first,
+        second
+        
+    }
+    public typeAtacks actualType = typeAtacks.first;
+
+
     protected virtual void Charge()
     {
         if (Input.GetKeyDown(KeyCode.R) && charge >= 1)
@@ -67,6 +78,9 @@ public abstract class GunsAbs : MonoBehaviour
         Charge();
     }
 
+
+
+
     protected virtual void Shoot()
     {
         if (Input.GetKeyDown(KeyCode.Mouse0) && _bulletCount >= 1)
@@ -85,10 +99,20 @@ public abstract class GunsAbs : MonoBehaviour
         }
         if (Time.time - _lastBullet > _shootD)
         {
-            StartCoroutine(ShootingAuto());          
-        }
+            switch (actualType)
+            {
+                case typeAtacks.first:
+                    StartCoroutine(ShootingAuto());
         _lastBullet = Time.time;
+                    return;
+                case typeAtacks.second:
+                    StartCoroutine(ShootingBurst());
+        _lastBullet = Time.time;
+                    return;
+            }
+        }
     }
 
     protected abstract IEnumerator ShootingAuto();    
+    protected abstract IEnumerator ShootingBurst();    
 }

@@ -4,12 +4,41 @@ using UnityEngine;
 
 
 
-
-public class Inventory : MonoBehaviour
+public class Inventory 
 {
     public List<Item> items = new List<Item>();
+    public int indexRef;
+        Item secundaria;
+        Item principal;
+    public Inventory(Item secundaria, Item principal)
+    {
+        items.Add(principal);
 
+        items.Add(secundaria);
 
+        this.principal = items[0];
+        this.secundaria = items[1];
+    }
+
+    public void changeWeapon()
+    {
+        if (secundaria.equipped && !principal.equipped)
+        {
+            secundaria.gun.SetActive(false);
+            secundaria.equipped = false;
+            principal.gun.SetActive(true);
+            principal.equipped = true;
+            indexRef = 0;
+        }
+        else if (!secundaria.equipped && principal.equipped)
+        {
+            secundaria.gun.SetActive(true);
+            secundaria.equipped = true;
+            principal.gun.SetActive(false);
+            principal.equipped = false;
+            indexRef = 1;
+        }
+    }
 
 }
 
@@ -17,7 +46,7 @@ public class Inventory : MonoBehaviour
 [System.Serializable]
 public struct Item
 {
+    public GameObject gun;
     public string name;
-    public int count;
     public bool equipped;
 }
