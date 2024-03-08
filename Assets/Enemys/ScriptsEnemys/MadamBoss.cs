@@ -122,7 +122,7 @@ public class MadamBoss : EntityEnemys, IDamagable
                 case typeAtacks.angry:
                     StartCoroutine(shootBurst());
                     lastShootTime = Time.time;
-                    return;
+                    return; 
                 case typeAtacks.lowlife:
                     StartCoroutine(OnlyRatatata());
                     lastShootTime = Time.time;

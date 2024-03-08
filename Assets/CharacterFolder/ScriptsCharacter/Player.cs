@@ -35,7 +35,7 @@ public class Player : MonoBehaviour
         movement = new Movement(_rb, speed, _cam, transform);
         pause = new Pause();
         lifeM.initialize(this);
-        inventario = new Inventory(guns[1], guns[0]);
+        
         controller = new Controller(movement, pause, canvas, empathy, _animator, speed, inventario);
         lifeM.maxLife = maxLife;
         empathy.maxEmpathy = maxEmpathy;
@@ -50,6 +50,7 @@ public class Player : MonoBehaviour
         lifeRef = lifeM.Life;
         empathyRef = empathy.Empathy;
         indexGun = inventario.indexRef;
+        
     }
 
     private void OnTriggerEnter(Collider other)

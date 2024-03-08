@@ -1,27 +1,19 @@
 using System.Collections.Generic;
+using UnityEngine;
 
 public class Dictionary
 {
-    Dictionary<string, int> Weapons = new Dictionary<string, int>();
+    Dictionary<Item, int> Collects = new Dictionary<Item, int>();
     private int index = 1;
-    public void AddWeapon(string weapon)
+    public void Collect(Item weapon)
     {
-        Weapons.Add(weapon.ToLower(), index++);
+        Collects.Add(weapon, index++);
     }
 
-    public void RemoveWeapon(string weapon)
+    public void RemoveWeapon(Item weapon)
     {
-        if (Weapons.ContainsKey(weapon.ToLower())) Weapons.Remove(weapon.ToLower());
+        if (Collects.ContainsKey(weapon)) Collects.Remove(weapon);
     }
 
-    //Si el arma no existe en el diccionario, devuelve cero.
-    public int ShowWeapon(string weapon)
-    {
-        int key = 0;
-        foreach (var item in Weapons)
-        {
-            if (item.Key == weapon) key = index;
-        }
-        return key;
-    }
+   
 }

@@ -21,10 +21,13 @@ public class UIManager : MonoBehaviour
     {
         lifeSlider.value = playerRef.lifeRef;
         empathySlider.value = playerRef.empathyRef;
-
-         bullets.text = "Balas:" + playerRef.inventario.items[playerRef.indexGun].gun.GetComponent<NormalGun>().bulletCount;
-         charger.text = "(R)ecargas: " + playerRef.inventario.items[playerRef.indexGun].gun.GetComponent<NormalGun>().chargeCount;
-         Weapon.text =  playerRef.inventario.items[playerRef.indexGun].name;
+        if (playerRef.indexGun!=0)
+        {
+            bullets.text = "Balas:" + playerRef.inventario.items[playerRef.indexGun].gun.GetComponent<NormalGun>().bulletCount;
+            charger.text = "(R)ecargas: " + playerRef.inventario.items[playerRef.indexGun].gun.GetComponent<NormalGun>().chargeCount;
+            Weapon.text = playerRef.inventario.items[playerRef.indexGun].name;
+        }
+        
     }
 
     
